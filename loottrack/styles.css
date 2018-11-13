@@ -1,0 +1,172 @@
+progress,          /* All HTML5 progress enabled browsers */
+progress[role]     /* polyfill */
+{
+
+	/* Turns off styling - not usually needed, but good to know. */
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+
+	/* gets rid of default border in Firefox and Opera. */ 
+	border: none;
+
+	/* Needs to be in here for Safari polyfill so background images work as expected. */
+	background-size: auto;
+	
+	/* Dimensions */
+	width: 400px;
+	height: 60px;
+	
+}
+
+/* Polyfill */
+progress[role]:after {
+	background-image: none; /* removes default background from polyfill */
+}
+
+/* Ensure fallback text doesn't appear in polyfill */
+progress[role] strong {
+	display: none;
+}
+
+progress,                          /* Firefox  */ 
+progress[role][aria-valuenow] {    /* Polyfill */
+   background: #ffeeee !important; /* !important is needed by the polyfill */
+}
+
+/* Chrome */
+progress::-webkit-progress-bar {
+    background: #ffeeee;
+}
+
+/* IE10 */
+progress {
+    color: black;
+}
+
+/* Firefox */
+progress::-moz-progress-bar { 
+    background: black;	
+}
+
+/* Chrome */
+progress::-webkit-progress-value {
+    background: black;
+}
+
+/* Polyfill */
+progress[aria-valuenow]:before  {
+    background: black;
+}
+
+/*
+ * Gradient Shadow
+ */
+
+/* All HTML5 progress enabled browsers */
+progress {
+
+	/* Turns off styling - not usually needed, but good to know. */
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	/* gets rid of default border in Firefox and Opera. */
+	border: solid #cccccc 5px;
+	border-radius: 10px;
+	/* Dimensions */
+	width: 238px;
+	height: 27px;
+}
+
+/* Polyfill */
+progress[role]:after {
+	background-image: none; /* removes default background from polyfill */
+}
+
+/*
+ * Background of the progress bar background
+ */
+
+/* Firefox and Polyfill */
+progress {
+	background: #cccccc !important; /* !important only needed in polyfill */
+}
+
+/* Chrome */
+progress::-webkit-progress-bar {
+	background: #cccccc;
+}
+
+/*
+ * Background of the progress bar value
+ */
+
+/* Firefox */
+progress::-moz-progress-bar {
+	border-radius: 5px;
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(204, 204, 204) 37%,
+		rgb(204, 204, 204) 69%
+	);
+}
+
+/* Chrome */
+progress::-webkit-progress-value {
+	border-radius: 5px;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0%, rgb(255,255,255)),
+		color-stop(100%, rgb(192,235,255))
+		/*color-stop(25%, rgb(204, 204, 204)),
+		color-stop(100%, rgb(204, 204, 204))*/
+	);
+	background-image: -webkit-linear-gradient(
+		center bottom,
+		rgb(204, 204, 204) 37%,
+		rgb(204, 204, 204) 69%
+	);
+}
+
+/* Polyfill */
+progress[aria-valuenow]:before {
+	border-radius: 5px;
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(204, 204, 204) 37%,
+		rgb(204, 204, 204) 69%
+	);
+	background-image: -ms-linear-gradient(
+		center bottom,
+		rgb(204, 204, 204) 37%,
+		rgb(204, 204, 204) 69%
+	);
+	background-image: -o-linear-gradient(
+		center bottom,
+		rgb(204, 204, 204) 37%,
+		rgb(204, 204, 204) 69%
+	);
+	
+}
+
+progress {
+  text-align: center;
+  -webkit-appearance: none;
+  
+  /* Set the progressbar to relative */
+  position:relative;
+}
+
+progress:before {
+  content: attr(text);
+  font-size: 1.2em;
+  vertical-align: 0;
+  font-family: arial;
+  
+  /*Position text over the progress bar */
+  position:absolute;
+  left:0;
+  right:0;
+}
